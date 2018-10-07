@@ -1,0 +1,31 @@
+{
+  "containerDefinitions": [
+    {
+      "volumesFrom": [],
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "containerPort": 443,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "mountPoints": [],
+      "name": "lb_container",
+      "environment": [
+        {
+				  "name": "ENV",
+				  "value": "sbx"
+			  }
+      ],
+      "links": [],
+      "image": "IDCLIENTAWS.dkr.ecr.us-west-2.amazonaws.com/cia/ecs-wl-ssl-gateway:latest",
+      "cpu": 0,
+      "memoryReservation": 256
+    }
+  ],
+  "placementConstraints": [],
+  "volumes": [],
+  "family": "ecs-wl-ssl-gateway-sbx",
+  "taskRoleArn": "arn:aws:iam::IDCLIENTAWS:role/ECS_Service_SSLCerts_RO"
+}

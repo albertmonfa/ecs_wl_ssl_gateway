@@ -1,0 +1,24 @@
+---
+
+global:
+  bucket_name: "com.company-name.ops.ssl-certificates"
+  region: "us-west-2"
+  nginx_ssl_path: "/etc/nginx/ssl-certs/"
+  nginx_ssl_sites_config: "/etc/nginx/conf.d/web-ssl-proxy.conf"
+
+certificates:
+  - wc.foo.com:
+      server_name: "*.foo.com"
+      certificate: "certificate.crt"
+      certificate_key: "certificate.key"
+      proxy_pass: "http://foo"
+      resolver: "10.2.0.2" # DNS RESOLVER IN AWS VPC
+
+  - wc.bar.com:
+      server_name: "*.bar.com"
+      certificate: "certificate.crt"
+      certificate_key: "certificate.key"
+      proxy_pass: "http://bar"
+      resolver: "10.2.0.2"  # DNS RESOLVER IN AWS VPC
+
+...
